@@ -1,0 +1,30 @@
+<h2>Register</h2>
+
+<form action="" [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+  
+    <label>Nombre y apellido</label>
+    <input type="text" id="" formControlName="nombreYApellido"
+    [ngClass]="{ 'is-invalid': this.form.controls['email'].errors && this.submitted}">
+
+    @if (this.form.controls['nombreYApellido'].errors && this.submitted) {
+        <div class="text-invalid">Se requiere nombre y apaellido</div>    
+    }
+    
+    <label>Email</label>
+    <input type="text" id="" formControlName="email"
+    [ngClass]="{ 'is-invalid': this.form.controls['email'].errors && this.submitted}">
+
+    @if (this.form.controls['email'].errors && this.submitted) {
+        <div class="text-invalid">Email invalido</div>    
+    }
+
+    <label>Contraseña</label>
+    <input type="password" id="" formControlName="password"
+    [ngClass]="{ 'is-invalid': this.form.controls['password'].errors && this.submitted}">
+
+    @if (this.form.controls['password'].errors && this.submitted) {
+        <div class="text-invalid">Contraseña invalida</div>    
+    }
+    
+    <input type="submit" value="Registrarse" class="btn-submit">
+</form>

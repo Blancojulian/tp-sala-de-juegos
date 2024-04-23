@@ -1,0 +1,14 @@
+<header>
+    <nav>
+        <a [routerLink]="['/home']" class="contenedor-logo">
+            <img src="./../../../assets/img/icono.png" alt="Logo" width="100px">
+            <h2>Sala de juegos</h2>
+        </a>
+        <div class="nav-items">
+            <div [routerLink]="['/home']" routerLinkActive="active-route">Home</div>
+            <div [routerLink]="['/quien-soy']" routerLinkActive="active-route">Quien soy</div>
+            <div [routerLink]="['/login']" routerLinkActive="active-route">Login</div>
+            <div [routerLink]="['/register']" routerLinkActive="active-route">Register</div>
+        </div>
+    </nav>
+</header>

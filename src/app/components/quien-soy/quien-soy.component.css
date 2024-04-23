@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+}
+
+.foto{
+    width: 30%;
+}
+
+.texto{
+    width: 70%;
+}
