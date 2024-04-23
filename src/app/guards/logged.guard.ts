@@ -9,6 +9,7 @@ export const loggedGuard: CanActivateFn = async (route, state) => {
   
   if (auth.isLoggedIn()) {
     await Swal.fire({
+      icon: 'error',
       title: 'Mensaje',
       text: 'Usuario ya se encuentra logueado',
       heightAuto: false

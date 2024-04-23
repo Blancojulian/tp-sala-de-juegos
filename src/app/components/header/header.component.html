@@ -9,6 +9,7 @@
             <div [routerLink]="['/quien-soy']" routerLinkActive="active-route">Quien soy</div>
             <div [routerLink]="['/login']" routerLinkActive="active-route">Login</div>
             <div [routerLink]="['/register']" routerLinkActive="active-route">Register</div>
+            <button (click)="logout()" class="btn-logout" [ngClass]="{'activo' : this.isLogged}">Logout</button>
         </div>
     </nav>
 </header>
