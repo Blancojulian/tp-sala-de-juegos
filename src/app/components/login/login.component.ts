@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
 
     if (this.form.valid) {
       try {
-        await this.authService.register(
+        await this.authService.login(
           this.form.controls['email'].value,
           this.form.controls['password'].value);
         
