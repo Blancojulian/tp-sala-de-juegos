@@ -1,4 +1,4 @@
-div.active-route{
-    background-color: aqua !important;
-
+.main{
+    margin: 0 auto;
+    width: 90%;
 }

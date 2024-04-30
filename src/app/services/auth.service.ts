@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, authState, updateProfile } from '@angular/fire/auth';
+import { User, Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, authState, updateProfile } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -7,7 +8,11 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signO
 })
 export class AuthService {
 
-  constructor(private auth: Auth) {}
+  public readonly userState$;//: Observable<User | null>;
+
+  constructor(private auth: Auth) {
+    this.userState$ = authState(this.auth);
+  }
 
   public isLoggedIn() {
     return !!this.auth.currentUser;
@@ -15,6 +20,7 @@ export class AuthService {
   public async register(email: string, password: string, displayName: string | null = null, photoURL: string | null = null) {
     const credentials = await createUserWithEmailAndPassword(this.auth, email, password);
     await updateProfile(credentials.user, {displayName, photoURL});
+    return credentials;
   }
 
   public login(email: string, password: string) {

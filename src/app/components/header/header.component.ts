@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2';
 import { NgClass } from '@angular/common';
+import { Subscription, take, tap } from 'rxjs';
+import { User, UserInfo } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-header',
@@ -11,15 +13,25 @@ import { NgClass } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
 
-  isLogged = this.authService.isLoggedIn();
-
-  constructor(private authService: AuthService) {}
+  isLogged: boolean = false;// = this.authService.isLoggedIn();
+  userInfo: UserInfo | null = null;
+  sus: Subscription;
+  constructor(private authService: AuthService) {
+    this.sus = this.authService.userState$.subscribe((user)=> {
+      this.isLogged = !!user;
+      this.userInfo = user;
+    });
+  }
 
   ngOnInit(): void {
-    this.isLogged = this.authService.isLoggedIn();
+    //this.isLogged = this.authService.isLoggedIn();
+    //this.isLogged = this.authService.userState$.pipe(take(1), tap((user)=> !!user));
     
+  }
+  ngOnDestroy(): void {
+    this.sus.unsubscribe();
   }
 
   async logout() {

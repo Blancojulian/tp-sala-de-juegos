@@ -1,0 +1,21 @@
+.example-card {
+    max-width: 300px;
+    background-color: rgb(107, 169, 250);
+  }
+
+.container-cards{
+    padding-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  mat-card img{
+    height: 10rem;
+  }

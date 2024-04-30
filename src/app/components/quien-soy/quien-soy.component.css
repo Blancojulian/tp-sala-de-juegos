@@ -4,8 +4,10 @@
 
 .foto{
     width: 30%;
+    border-radius: 5px;
 }
 
 .texto{
     width: 70%;
+    margin-left: 1rem;
 }

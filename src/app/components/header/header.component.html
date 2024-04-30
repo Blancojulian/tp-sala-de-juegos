@@ -7,9 +7,13 @@
         <div class="nav-items">
             <div [routerLink]="['/home']" routerLinkActive="active-route">Home</div>
             <div [routerLink]="['/quien-soy']" routerLinkActive="active-route">Quien soy</div>
-            <div [routerLink]="['/login']" routerLinkActive="active-route">Login</div>
-            <div [routerLink]="['/register']" routerLinkActive="active-route">Register</div>
-            <button (click)="logout()" class="btn-logout" [ngClass]="{'activo' : this.isLogged}">Logout</button>
+            @if (this.isLogged) {
+                <div>{{this.userInfo?.displayName}}</div>
+                <button (click)="logout()" class="btn-logout activo">Logout</button>
+            } @else {
+                <div [routerLink]="['/login']" routerLinkActive="active-route">Login</div>
+                <div [routerLink]="['/register']" routerLinkActive="active-route">Register</div>
+            }
         </div>
     </nav>
 </header>

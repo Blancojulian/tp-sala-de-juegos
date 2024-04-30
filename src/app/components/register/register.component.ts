@@ -4,6 +4,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModu
 import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { LogService } from '../../services/log.service';
 
 @Component({
   selector: 'app-register',
@@ -26,7 +27,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-     private router: Router
+    private router: Router,
+    private logService: LogService
   ) {}
 
   ngOnInit(): void {
@@ -45,10 +47,13 @@ export class RegisterComponent implements OnInit {
 
     if (this.form.valid) {
       try {
-        await this.authService.register(
+        const credentials = await this.authService.register(
           this.form.controls['email'].value,
           this.form.controls['password'].value,
-          this.form.controls['nombreYApellido'].value);
+          this.form.controls['nombreYApellido'].value
+        );
+        await this.logService.crearLog({email: credentials.user.email || 'Sin email', userId: credentials.user.uid  });
+
         await Swal.fire({
           icon: 'success',
           title: 'Exito',

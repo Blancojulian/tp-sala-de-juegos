@@ -6,6 +6,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { loggedGuard } from './guards/logged.guard';
 import { authGuard } from './guards/auth.guard';
 import { RegisterComponent } from './components/register/register.component';
+import { TatetiComponent } from './components/tateti/tateti.component';
+import { MemotestComponent } from './components/memotest/memotest.component';
+import { PiedraPapelTijeraComponent } from './components/piedra-papel-tijera/piedra-papel-tijera.component';
 
 export const routes: Routes = [
     {
@@ -15,24 +18,45 @@ export const routes: Routes = [
     },
     {
         path: 'home',
-        component: HomeComponent
+        loadComponent: () => import('./components/home/home.component').then(m=> m.HomeComponent)
     },
     {
         path: 'login',
         canActivate: [loggedGuard],
-        component: LoginComponent
+        loadComponent: () => import('./components/login/login.component').then(m=> m.LoginComponent),
     },
     {
         path: 'register',
         canActivate: [loggedGuard],
-        component: RegisterComponent
+        loadComponent: () => import('./components/register/register.component').then(m=> m.RegisterComponent),
+        
     },
     {
         path: 'quien-soy',
-        component: QuienSoyComponent
+        //canActivate: [authGuard],
+        loadComponent: () => import('./components/quien-soy/quien-soy.component').then(m=> m.QuienSoyComponent),
+        
+    },
+    {
+        path: 'juegos',
+        canActivate: [authGuard],
+        children: [
+            {
+                path: 'tateti',
+                loadComponent: () => import('./components/tateti/tateti.component').then(m=> m.TatetiComponent),  
+            },
+            {
+                path: 'memotest',
+                loadComponent: () => import('./components/memotest/memotest.component').then(m=> m.MemotestComponent),  
+            },
+            {
+                path: 'piedra-papel-tijera',
+                loadComponent: () => import('./components/piedra-papel-tijera/piedra-papel-tijera.component').then(m=> m.PiedraPapelTijeraComponent),  
+            },
+        ]
     },
     {
         path: '**',
-        component: NotFoundComponent
+        loadComponent: () => import('./components/not-found/not-found.component').then(m=> m.NotFoundComponent)
     },
 ];
