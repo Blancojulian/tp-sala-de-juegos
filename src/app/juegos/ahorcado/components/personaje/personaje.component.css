@@ -1,0 +1,19 @@
+.no-display{
+    display: none;
+}
+
+.personaje{
+    display: flex;
+    justify-content: center;
+}
+
+.personaje.cabeza #head,
+.personaje.torso #torso,
+.personaje.brazo-derecho #armR,
+.personaje.brazo-izquiero #armL,
+.personaje.pierna-derecho #legR,
+.personaje.pierna-izquiero #legL{
+    display: none;
+
+}
+

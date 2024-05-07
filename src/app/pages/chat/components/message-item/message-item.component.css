@@ -1,0 +1,20 @@
+.mensaje.propio{
+    text-align: end;
+    color: #84f145;
+}
+
+.mensaje{
+    text-align: start;
+    color: #f15945;
+    list-style: none;
+}
+
+.mensaje h6{
+    font-size: 0.9rem;
+
+}
+
+.mensaje p{
+    font-size: 1.5rem;
+
+}

@@ -1,0 +1,7 @@
+<div class="container-palabra">
+    @for (letra of this.datoPalabraIncompleta; track $index) {
+        <div>
+            <app-letra [datoLetra]="letra"></app-letra>
+        </div>
+    }
+</div>

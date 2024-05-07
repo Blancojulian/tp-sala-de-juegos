@@ -5,6 +5,7 @@ import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { LogService } from '../../services/log.service';
+import { FirebaseError } from '@angular/fire/app';
 
 @Component({
   selector: 'app-register',
@@ -61,11 +62,15 @@ export class RegisterComponent implements OnInit {
         });
         await this.router.navigateByUrl('/home');
       } catch (err) {
+        //console.log(err);
+        
+        const msg = err instanceof FirebaseError ? 'Email ya se encuenta en uso' : 'Ocurrio un error';
+        //(err as Error)?.message || 'Ocurrio un error'
         Swal.fire({
           icon: 'error',
           title: 'Error',
-          text: (err as Error)?.message || 'Ocurrio un error'
-        })
+          text: msg
+        });
       }
       
     }

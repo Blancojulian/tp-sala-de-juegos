@@ -1,0 +1,15 @@
+<div class="chat-box">
+    <h2>Chat Grupal</h2>
+    <p>Usuario {{this.userInfo?.displayName}}</p>
+    <app-chat-messages [userId]="this.userInfo?.uid || null"></app-chat-messages>
+    <form (submit)="this.onSubmit()">
+        <div class="container-inputs">
+            <input type="text" [(ngModel)]="this.texto" name="texto"/>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            
+        </div>
+
+    </form>
+
+</div>

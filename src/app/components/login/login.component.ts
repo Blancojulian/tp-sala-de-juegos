@@ -5,6 +5,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { LogService } from '../../services/log.service';
+import { FirebaseError } from '@angular/fire/app';
 
 @Component({
   selector: 'app-login',
@@ -61,13 +62,14 @@ export class LoginComponent implements OnInit {
         });
         await this.router.navigateByUrl('/home');
       } catch (err) {
-        console.log(err);
-        
+        //console.log(err);
+        const msg = err instanceof FirebaseError ? 'Contraseña o email incorrecto' : 'Ocurrio un error';
+        //(err as Error)?.message || 'Ocurrio un error'
         Swal.fire({
           icon: 'error',
           title: 'Error',
-          text: (err as Error)?.message || 'Ocurrio un error'
-        })
+          text: msg
+        });
       }
       
     }

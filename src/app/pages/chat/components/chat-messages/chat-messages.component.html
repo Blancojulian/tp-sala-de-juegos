@@ -1,0 +1,9 @@
+<ul class="container-mensajes">
+    @for (mensaje of this.chatsCollection; track $index) {
+        <app-message-item
+        [texto]="mensaje.texto"
+        [nombre]="mensaje.nombre"
+        [esPropio]="mensaje.userId === this.userId"></app-message-item>
+    }
+
+</ul>

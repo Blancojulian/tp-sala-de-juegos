@@ -1,0 +1,14 @@
+.container-inputs{
+    display: flex;
+    gap: 1rem;
+}
+
+.container-inputs button{
+    width: 30%;
+    font-size: 1.5rem;
+    
+}
+.container-inputs input{
+    width: 70%;
+    font-size: 1.5rem;
+}

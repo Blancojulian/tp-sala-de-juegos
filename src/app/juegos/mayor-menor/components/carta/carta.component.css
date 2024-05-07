@@ -1,0 +1,25 @@
+.carta{
+    position: relative;
+    height: 18rem;
+    width: 10rem;
+    border: solid 3px #000;
+    border-radius: 1.2rem;
+    background-color: #fff;
+    color: #000;
+}
+.carta img{
+    height: 100%;
+    width: 100%;
+    border-radius: 1.2rem;
+}
+.numero-arriba{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+
+.numero-abajo{
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+}

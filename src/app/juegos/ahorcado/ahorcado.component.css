@@ -1,0 +1,17 @@
+.container-letras{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background-color: aqua;
+}
+
+.container-palabra{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background-color: red;
+}
+
+.container-palabra app-letra{
+    cursor: pointer;
+}

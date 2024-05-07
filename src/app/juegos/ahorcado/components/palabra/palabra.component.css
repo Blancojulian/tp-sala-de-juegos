@@ -1,0 +1,9 @@
+.container-palabra{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background-color: brown;
+}
+.no-visible{
+    visibility: hidden;
+}

@@ -38,9 +38,22 @@ export const routes: Routes = [
         
     },
     {
+        path: 'chat',
+        canActivate: [authGuard],
+        loadChildren: () => import('./pages/chat/chat.module').then(m => m.ChatModule)
+    },
+    {
         path: 'juegos',
         canActivate: [authGuard],
         children: [
+            {
+                path: 'ahorcado',
+                loadChildren: () => import('./juegos/ahorcado/ahorcado.module').then(m => m.AhorcadoModule)
+            },
+            {
+                path: 'mayor-menor',
+                loadChildren: () => import('./juegos/mayor-menor/mayor-menor.module').then(m => m.MayorMenorModule)
+            },
             {
                 path: 'tateti',
                 loadComponent: () => import('./components/tateti/tateti.component').then(m=> m.TatetiComponent),  

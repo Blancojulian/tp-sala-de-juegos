@@ -1,0 +1,10 @@
+<div 
+(click)="this.onClick()" 
+class="letra" 
+[ngClass]="{
+    'correcto': this.estaSeleccionado && this.esCorrecto === true, 
+    'incorrecto': this.estaSeleccionado && this.esCorrecto === false,
+    'cursor': this.datoLetra !== '_' && this.datoLetra !== ' '
+    }">
+    {{this.datoLetra}}
+</div>

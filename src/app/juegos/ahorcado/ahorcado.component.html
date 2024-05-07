@@ -1,0 +1,17 @@
+<h2>Ahorcado</h2>
+<h2>Intentos fallidos {{this.intentos}}</h2>
+@if(this.ganoPartida === true){
+<h2>Gano la partida</h2>
+}@else if(this.ganoPartida === false){
+<h2>Perdio la partida</h2>
+}
+
+<app-personaje [intentosFallidos]="this.intentos"></app-personaje>
+
+<app-palabra [datoPalabra]="this.palabra" [datoPalabraIncompleta]="this.palabraIncompleta"></app-palabra>
+<div class="container-letras" *appAhorcado="this.letras">
+
+    @for (letra of this.letras; track $index) {
+        <app-letra [datoLetra]="letra" (onEnviarDato)="this.recibirDato($event)"></app-letra>
+    }
+</div>
