@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { LogService } from '../../services/log.service';
 import { FirebaseError } from '@angular/fire/app';
+import { environment } from './../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -73,6 +74,12 @@ export class LoginComponent implements OnInit {
       }
       
     }
+  }
+
+  completarDatos() {
+    const {email, password} = environment.usuarioPrueba;
+    this.form.controls['email'].setValue(email);
+    this.form.controls['password'].setValue(password);
   }
 
   private match(controlName: string, checkControlName: string): ValidatorFn {

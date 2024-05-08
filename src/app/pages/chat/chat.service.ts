@@ -3,6 +3,7 @@ import { Firestore, addDoc, collectionChanges, collectionData } from '@angular/f
 import { Message } from './interfaces/message';
 import { Subscription } from 'rxjs';
 import { collection } from '@firebase/firestore';
+import { query } from '@angular/animations';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,10 @@ export class ChatService {
   public readonly chatUpdate$;
 
   constructor(private firestore: Firestore) {
+
+    //const q = query(collection(db, "cities"), where("capital", "==", true));
     let col = collection(this.firestore, 'chats');
+    //query
     this.chatUpdate$ = collectionData(col);
   }
 

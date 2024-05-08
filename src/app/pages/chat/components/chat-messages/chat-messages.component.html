@@ -3,7 +3,8 @@
         <app-message-item
         [texto]="mensaje.texto"
         [nombre]="mensaje.nombre"
-        [esPropio]="mensaje.userId === this.userId"></app-message-item>
+        [esPropio]="mensaje.userId === this.userId"
+        [fecha]="mensaje.fecha.toDate()"></app-message-item>
     }
 
 </ul>

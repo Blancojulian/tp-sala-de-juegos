@@ -30,6 +30,7 @@ export class ChatComponent implements OnDestroy {
   onSubmit() {
     if (this.texto && this.userInfo !== null) {
       this.chatService.enviarMensaje(this.userInfo.uid, this.userInfo?.displayName || 'Anonimo', this.texto); 
+      this.texto = '';
       //alert('mensaje')
     }
   }

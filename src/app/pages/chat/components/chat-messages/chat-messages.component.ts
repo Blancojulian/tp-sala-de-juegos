@@ -17,8 +17,10 @@ export class ChatMessagesComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.sub = this.chatService.chatUpdate$.subscribe((c)=> {
+      c.sort((a,b)=> a['fecha'] - b['fecha'])
       this.chatsCollection = c;
       console.log(c);
+      console.log(c[0]['fecha']);
       console.log('arriba mensajes');
       
       

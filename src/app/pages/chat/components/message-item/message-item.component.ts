@@ -9,5 +9,6 @@ export class MessageItemComponent {
   @Input() public texto: string = "";
   @Input() public nombre: string = "";
   @Input() public esPropio: boolean = false;
+  @Input() public fecha!: Date;
 
 }

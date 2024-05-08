@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   async logout() {
 
     if (this.authService.isLoggedIn()) {
-      this.authService.logout();
+      await this.authService.logout();
     } else {
       await Swal.fire({
         icon: 'error',
