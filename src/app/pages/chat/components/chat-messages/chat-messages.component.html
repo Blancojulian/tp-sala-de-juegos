@@ -1,4 +1,5 @@
-<ul class="container-mensajes">
+<button (click)="this.scrollToLastMessage()">scroll</button>
+<ul class="container-mensajes" (load)="this.scrollToLastMessage()">
     @for (mensaje of this.chatsCollection; track $index) {
         <app-message-item
         [texto]="mensaje.texto"
@@ -6,5 +7,10 @@
         [esPropio]="mensaje.userId === this.userId"
         [fecha]="mensaje.fecha.toDate()"></app-message-item>
     }
-
+    <div [appScrollToLast]="this.chatsCollection" ></div>
 </ul>
+
+<!--#scrollElem
+[appScrollToLast]="this.chatsCollection"
+    <div id="last-message"></div>
+-->

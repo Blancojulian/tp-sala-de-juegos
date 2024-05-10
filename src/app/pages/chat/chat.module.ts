@@ -7,10 +7,11 @@ import { MessageItemComponent } from './components/message-item/message-item.com
 import { ChatMessagesComponent } from './components/chat-messages/chat-messages.component';
 import { FormsModule, NgModel } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { ScrollToLastDirective } from './directives/scroll-to-last.directive';
 
 
 @NgModule({
-  declarations: [ChatComponent, ChatMessagesComponent, MessageItemComponent],
+  declarations: [ChatComponent, ChatMessagesComponent, MessageItemComponent, ScrollToLastDirective],
   imports: [
     FormsModule,
     CommonModule,

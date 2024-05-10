@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2';
 import { NgClass } from '@angular/common';
@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isLogged: boolean = false;// = this.authService.isLoggedIn();
   userInfo: UserInfo | null = null;
   sus: Subscription;
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
     this.sus = this.authService.userState$.subscribe((user)=> {
       this.isLogged = !!user;
       this.userInfo = user;
@@ -36,8 +36,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   async logout() {
 
-    if (this.authService.isLoggedIn()) {
+    if (this.isLogged) {// ver como hacer devuelda a home sino esta en una ruta protegida
       await this.authService.logout();
+      const res = await this.router.navigate([]);
+      console.log('router res: '+res);
+      console.log('router route: '+this.router.url);
+      
     } else {
       await Swal.fire({
         icon: 'error',
@@ -46,7 +50,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         heightAuto: false
       });
     }
-    this.isLogged = this.authService.isLoggedIn();
+    //this.isLogged = this.authService.isLoggedIn();
 
   }
 }

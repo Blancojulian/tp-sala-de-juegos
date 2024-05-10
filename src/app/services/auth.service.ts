@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User, Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, authState, updateProfile } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 
@@ -10,13 +11,13 @@ export class AuthService {
 
   public readonly userState$;//: Observable<User | null>;
 
-  constructor(private auth: Auth) {
+  constructor(
+    private auth: Auth,
+    private router: Router
+  ) {
     this.userState$ = authState(this.auth);
   }
 
-  public isLoggedIn() {
-    return !!this.auth.currentUser;
-  }
   public async register(email: string, password: string, displayName: string | null = null, photoURL: string | null = null) {
     const credentials = await createUserWithEmailAndPassword(this.auth, email, password);
     await updateProfile(credentials.user, {displayName, photoURL});
@@ -27,8 +28,11 @@ export class AuthService {
     return signInWithEmailAndPassword(this.auth, email, password);
   }
 
-  public logout() {
+  public async logout() {
     //this.auth.signOut()
-    return signOut(this.auth);
+    await signOut(this.auth);
+    if (this.router.url.includes('chat') || this.router.url.includes('juegos')) {
+      await this.router.navigateByUrl('/home');
+    }
   }
 }

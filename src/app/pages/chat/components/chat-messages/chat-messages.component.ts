@@ -1,7 +1,8 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ChatService } from '../../chat.service';
 import { Subscription } from 'rxjs';
 import { Message } from '../../interfaces/message';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-chat-messages',
@@ -13,21 +14,32 @@ export class ChatMessagesComponent implements OnInit, OnDestroy {
   private sub!: Subscription;
   @Input() public userId: string | null = null;
   
-  constructor(private chatService: ChatService) {}
+  constructor(
+    private chatService: ChatService
+  ) {}
 
   ngOnInit(): void {
     this.sub = this.chatService.chatUpdate$.subscribe((c)=> {
-      c.sort((a,b)=> a['fecha'] - b['fecha'])
+      c.sort((a,b)=> a['fecha'] - b['fecha']);
       this.chatsCollection = c;
-      console.log(c);
-      console.log(c[0]['fecha']);
-      console.log('arriba mensajes');
-      
-      
-    })
+      //console.log(c);
+      //console.log(c[0]['fecha']);
+      //console.log('arriba mensajes');
+    });
+
   }
+  
 
   ngOnDestroy(): void {
     this.sub?.unsubscribe();
+  }
+
+
+  scrollToLastMessage() {
+    try {
+      
+    } catch(err) {
+
+    }
   }
 }
