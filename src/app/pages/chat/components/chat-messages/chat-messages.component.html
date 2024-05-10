@@ -1,5 +1,4 @@
-<button (click)="this.scrollToLastMessage()">scroll</button>
-<ul class="container-mensajes" (load)="this.scrollToLastMessage()">
+<ul class="container-mensajes">
     @for (mensaje of this.chatsCollection; track $index) {
         <app-message-item
         [texto]="mensaje.texto"
