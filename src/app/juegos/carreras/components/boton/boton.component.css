@@ -1,0 +1,21 @@
+:root{
+    --color1: #db5948;
+}
+.boton{
+    padding: 0.5rem 0.5rem;
+    color: #db5948;
+    background-color: inherit;
+    font-size: 2rem;
+    cursor: pointer;
+    border: #db5948 solid 3px;
+    border-radius: 1.2rem;
+    text-align: center;
+    /*transform: translate(-50%, -50%);*/
+}
+
+.boton:hover {
+    background: #db5948;
+    box-shadow: 0 0 2rem #db5948;
+    color: #fff;
+    transition: background .5s, color .5s;
+}

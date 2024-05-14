@@ -47,6 +47,10 @@ export const routes: Routes = [
         canActivate: [authGuard],
         children: [
             {
+                path: 'carreras',
+                loadChildren: () => import('./juegos/carreras/carreras.module').then(m => m.CarrerasModule)
+            },
+            {
                 path: 'ahorcado',
                 loadChildren: () => import('./juegos/ahorcado/ahorcado.module').then(m => m.AhorcadoModule)
             },

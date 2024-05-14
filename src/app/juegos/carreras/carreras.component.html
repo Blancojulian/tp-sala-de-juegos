@@ -1,0 +1,29 @@
+
+<div class="fondo">
+    <app-arbol [animar]="this.carrerasService.ganoPartida"></app-arbol>
+    <div class="puntaje">
+        <h1>Puntaje {{this.carrerasService.puntaje}}</h1>
+        <app-boton (click)="this.jugar($event)">Play</app-boton>
+    </div>
+    <div class="pista" [style]="{height: this.carrerasService.height, width: this.carrerasService.width}">
+        <div class="linea" [ngClass]="{'animar': this.carrerasService.ganoPartida || this.carrerasService.ganoPartida === null}"></div>
+        <app-auto
+        [x]="this.carrerasService.player.position.x"
+        [y]="this.carrerasService.player.position.y"
+        [h]="this.carrerasService.player.height"
+        [w]="this.carrerasService.player.width"
+        [src]="'./../../../../../assets/img/carreras/player.png'"
+        ></app-auto>
+
+        @for (enemigo of this.carrerasService.enemigos; track $index) {
+            <app-auto
+            [x]="enemigo.position.x"
+            [y]="enemigo.position.y"
+            [h]="enemigo.height"
+            [w]="enemigo.width"
+            
+            ></app-auto>
+        }
+    </div>
+</div>
+

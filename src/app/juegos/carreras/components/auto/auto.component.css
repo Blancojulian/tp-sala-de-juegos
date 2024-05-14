@@ -1,0 +1,19 @@
+.auto{
+    position: absolute;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*top: 50px;
+    height: 50px;
+    width: 30px;
+    background-image: url('./../../../../../assets/img/carreras/auto-crop.png') ;
+    background-repeat: no-repeat;
+    background-size:contain;*/
+}
+
+.auto img{
+    width: 125%;
+    height: 110%;
+    object-fit: fill;
+}
