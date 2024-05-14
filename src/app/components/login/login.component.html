@@ -13,10 +13,10 @@
                 [ngClass]="{ 'is-invalid': this.form.controls['email'].errors && this.submitted}">
 
 
-            <button type="submit" mat-button class="btn-submit" name="input-submit">Login</button>
+            <button [disabled]="this.isLoading" type="submit" mat-button class="btn-submit" name="input-submit">Login</button>
 
         </form>
-        <button mat-button (click)="this.completarDatos()" class="btn-submit">Completar datos</button>
+        <button [disabled]="this.isLoading" mat-button (click)="this.completarDatos()" class="btn-submit">Completar datos</button>
 
     <mat-card-content>
         @if (this.isLoading) {
