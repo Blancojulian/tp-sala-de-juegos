@@ -11,7 +11,7 @@ export class AutoComponent {
   @Input() h: number = 0;
   @Input() w: number = 0;
   @Input() medida: string = 'px';
-  @Input() src: string = './../../../../../assets/img/carreras/auto.png';
+  @Input() src: string = './../../../../../assets/img/carreras/auto-resize.png';
 
   constructor() {
     /*setInterval(()=>{

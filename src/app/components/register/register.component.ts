@@ -6,11 +6,14 @@ import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { LogService } from '../../services/log.service';
 import { FirebaseError } from '@angular/fire/app';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass],
+  imports: [ReactiveFormsModule, NgClass, MatButtonModule, MatCardModule, MatProgressSpinnerModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -24,6 +27,7 @@ export class RegisterComponent implements OnInit {
     password: new FormControl()
   })
   submitted = false;
+  isLoading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -47,6 +51,7 @@ export class RegisterComponent implements OnInit {
     this.submitted = true;
 
     if (this.form.valid) {
+      this.isLoading = true;
       try {
         const credentials = await this.authService.register(
           this.form.controls['email'].value,
@@ -71,6 +76,8 @@ export class RegisterComponent implements OnInit {
           title: 'Error',
           text: msg
         });
+      } finally {
+        this.isLoading = false;
       }
       
     }

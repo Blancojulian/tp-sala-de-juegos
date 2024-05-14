@@ -1,30 +1,42 @@
-<h2>Register</h2>
+<mat-card>
+    <mat-card-title>Registro</mat-card-title>
+    <mat-card-content>
+        <form action="" [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
 
-<form action="" [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
-  
-    <label>Nombre y apellido</label>
-    <input type="text" id="" formControlName="nombreYApellido"
-    [ngClass]="{ 'is-invalid': this.form.controls['email'].errors && this.submitted}">
+            <label>Nombre y apellido</label>
+            <input type="text" id="" formControlName="nombreYApellido"
+                [ngClass]="{ 'is-invalid': this.form.controls['email'].errors && this.submitted}">
 
-    @if (this.form.controls['nombreYApellido'].errors && this.submitted) {
-        <div class="text-invalid">Se requiere nombre y apaellido</div>    
-    }
-    
-    <label>Email</label>
-    <input type="text" id="" formControlName="email"
-    [ngClass]="{ 'is-invalid': this.form.controls['email'].errors && this.submitted}">
+            @if (this.form.controls['nombreYApellido'].errors && this.submitted) {
+            <div class="text-invalid">Se requiere nombre y apaellido</div>
+            }
 
-    @if (this.form.controls['email'].errors && this.submitted) {
-        <div class="text-invalid">Email invalido</div>    
-    }
+            <label>Email</label>
+            <input type="text" id="" formControlName="email"
+                [ngClass]="{ 'is-invalid': this.form.controls['email'].errors && this.submitted}">
 
-    <label>Contraseña</label>
-    <input type="password" id="" formControlName="password"
-    [ngClass]="{ 'is-invalid': this.form.controls['password'].errors && this.submitted}">
+            @if (this.form.controls['email'].errors && this.submitted) {
+            <div class="text-invalid">Email invalido</div>
+            }
 
-    @if (this.form.controls['password'].errors && this.submitted) {
-        <div class="text-invalid">Contraseña invalida</div>    
-    }
-    
-    <input type="submit" value="Registrarse" class="btn-submit">
-</form>
+            <label>Contraseña</label>
+            <input type="password" id="" formControlName="password"
+                [ngClass]="{ 'is-invalid': this.form.controls['password'].errors && this.submitted}">
+
+            @if (this.form.controls['password'].errors && this.submitted) {
+            <div class="text-invalid">Contraseña invalida
+                <br>
+                Debe terner al menos una letra y un numero
+                <br>
+                Debe tener 8 digitos
+            </div>
+            }
+
+            <button type="submit" mat-button class="btn-submit" name="input-submit">Login</button>
+            
+        </form>
+        @if (this.isLoading) {
+            <mat-spinner></mat-spinner>
+        }
+    <mat-card-content>
+<mat-card>

@@ -1,9 +1,19 @@
 .arbol{
+    position: absolute;
+    top: 10%;
+    left: 15%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 6rem;
+    width: 3rem;
 }
+.arbol img{
+    height: 100%;
+    width: 100%;
+}
+
 .hojas{
     height: 3rem;
     width: 3rem;
@@ -20,6 +30,6 @@
     animation: moverse 5s linear infinite;
 }
 @keyframes moverse {
-    0% { transform: translateY(-300%); }
-    100% { transform: translateY(300%); }
+    0% { transform: translateY(-400%); }
+    100% { transform: translateY(400%); }
 }

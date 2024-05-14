@@ -8,10 +8,14 @@ import { LogService } from '../../services/log.service';
 import { FirebaseError } from '@angular/fire/app';
 import { environment } from './../../../environments/environment';
 
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass],
+  imports: [ReactiveFormsModule, NgClass, MatButtonModule, MatCardModule, MatProgressSpinnerModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -25,6 +29,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl()
   })
   submitted = false;
+  isLoading = false;
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -46,6 +51,7 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
 
     if (this.form.valid) {
+      this.isLoading = true;
       try {
         const userCrentialds = await this.authService.login(
           this.form.controls['email'].value,
@@ -71,6 +77,8 @@ export class LoginComponent implements OnInit {
           title: 'Error',
           text: msg
         });
+      } finally {
+        this.isLoading = false;
       }
       
     }
