@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     
     this.submitted = true;
 
-    if (this.form.valid) {
+    //if (this.form.valid) {
       this.isLoading = true;
       try {
         const userCrentialds = await this.authService.login(
@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
         this.isLoading = false;
       }
       
-    }
+    //}
   }
 
   completarDatos() {
