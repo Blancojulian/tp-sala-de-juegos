@@ -70,6 +70,10 @@ export const routes: Routes = [
                 path: 'piedra-papel-tijera',
                 loadComponent: () => import('./components/piedra-papel-tijera/piedra-papel-tijera.component').then(m=> m.PiedraPapelTijeraComponent),  
             },
+            {
+                path: 'preguntados',
+                loadChildren: () => import('./juegos/preguntados/preguntados.module').then(m=>m.PreguntadosModule)
+            }
         ]
     },
     {

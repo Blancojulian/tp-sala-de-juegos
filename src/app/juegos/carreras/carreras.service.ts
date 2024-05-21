@@ -73,12 +73,19 @@ export class CarrerasService {
     //this.setDimensions();
     this._unidadMedida = unidadMedida;
     this.player.height = this._height * 0.25;
-    this.player.width = this._width * 0.15;
+    this.player.width = this._width * 0.20;
     //posicion inicial del jugador
     this.player.position.x = (this._width / 2) - (this.player.width / 2);
     this.player.position.y = this._height * 0.8;
     this.generarEnemigos();
     
+  }
+
+  private setDimensionsCar() {
+    const esRutaLarga = this._height > this._width;
+    if (esRutaLarga) {
+      this.player.width = this._width * 0.15;
+    }
   }
 
   public setDimensions() {

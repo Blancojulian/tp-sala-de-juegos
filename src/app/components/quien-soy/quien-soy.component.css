@@ -11,3 +11,15 @@
     width: 70%;
     margin-left: 1rem;
 }
+
+
+.juego-card {
+    margin: 0 auto;
+    max-width: 40rem;
+    background-color: rgb(107, 169, 250);
+  }
+
+  mat-card img{
+    height: 30rem;
+    object-fit: contain;
+  }

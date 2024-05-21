@@ -1,0 +1,32 @@
+<h1>Preguntados</h1>
+@if (!this.estaJugando) {
+    <mat-form-field>
+        <mat-label>Categoria</mat-label>
+        <select matNativeControl #categoriaElem [(ngModel)]="this.categoria" name="categorias" id="">
+            <option value="" selected>Seleccioner categoria</option>
+            <option [value]="this.categorias.CienciaNaturaleza">Ciencia y naturaleza</option>
+            <option [value]="this.categorias.DeporteOcio">Deportes y ocio</option>
+            <option [value]="this.categorias.Geografia">Geografia</option>
+            <option [value]="this.categorias.Historia">Historia</option>
+            <option [value]="this.categorias.LiteraturaArte">Arte y literatura</option>
+        </select>
+    </mat-form-field>
+    <button mat-button (click)="this.agregarPreguntas()" [disabled]="this.categoria === ''">Empezar</button>
+
+} @else {
+
+    <h4>{{this.categoriaActual}}</h4>
+    <h2>Puntaje {{this.puntaje}}</h2>
+    <h2>{{this.preguntaActual + (preguntaActual !== '' ? ' '+(currentIndex + 1)+'/'+this.listaPreguntas.length : '')}}</h2>
+    <div class="container-opciones" *appAhorcado="this.opcionesPreguntas">
+        @for (pregunta of this.opcionesPreguntas; track $index) {
+            <div #opcion class="opcion" [id]="pregunta" (click)="this.verificarRespuesta($event, pregunta)">{{pregunta}}</div>
+        }
+    </div>
+    @if (this.estaContestada && this.currentIndex !== this.listaPreguntas.length-1) {
+        <button mat-button (click)="this.siguientePregunta()" >Siguiente</button>
+    } @else if(this.currentIndex === this.listaPreguntas.length-1) {
+        <button mat-button (click)="this.volverAJugar()" >Volver a jugar</button>
+    
+    }
+}

@@ -1,5 +1,5 @@
 
-<div class="container">
+<!--<div class="container">
     <img src="./../../../assets/img/foto.png" alt="" class="foto">
     <div class="texto">
         <h2>Julián Blanco</h2>
@@ -7,4 +7,20 @@
         <p>Soy estudiante de programacion en la UTN, tengo conocimiento en lenguajes como C#, Javascript, PHP</p>
     
     </div>
-</div>
+</div>-->
+<mat-card class="juego-card">
+    
+    <img mat-card-image src="./../../../assets/img/foto.png" alt="foto">
+    <mat-card-content>
+        <h2>Julián Blanco</h2>
+        
+        <p>Soy estudiante de programacion en la UTN, tengo conocimiento en lenguajes como C#, Javascript, PHP</p>
+        <p>MI idea para el juego viene de los viejos juegos de carrera.
+            La experiencia de juego enfatiza la velocidad, los reflejos rápidos.
+            Los controles son a,w,s,d para el movimiento y espacio para acelerar
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button [routerLink]="['/juegos/carreras']">Probar juego</button>
+    </mat-card-actions>
+  </mat-card>

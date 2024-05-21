@@ -1,3 +1,9 @@
+.chat-box{
+    height: 40rem;
+    /*background-color: red;*/
+
+}
+
 .container-inputs{
     display: flex;
     gap: 1rem;

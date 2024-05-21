@@ -1,6 +1,11 @@
-.container-mensajes{
-    height: 12rem;
+.container-mensajes{/*ver el height, esta tomando demas con el %*/
+    height: 80%;
     padding: 0 1rem;
     overflow-y: scroll;
-
+    /*background-image: url('./../../../../../assets/img/chat/chat-background.png');
+    background-repeat:repeat;*/
+    background: linear-gradient(135deg, #ffffff 20%, transparent 20%, transparent 80%, #ffffff 80%),linear-gradient(45deg, #ffffff 40%, #3a31e8 40%, #3a31e8 60%, #3a31e8 60%, #ffffff 60%) , linear-gradient(135deg, #ffffff 20%, #3a31e8 20%, #3a31e8 80%, #ffffff 80%);
+        background-size: 3em 3em;
+        background-color: #ffffff;
+        /*opacity: 0.5*/
 }

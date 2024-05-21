@@ -9,7 +9,7 @@ import { CarrerasService } from './carreras.service';
 export class CarrerasComponent implements OnInit, OnDestroy {
 
   constructor(public carrerasService: CarrerasService) {
-    this.carrerasService.setValues(400, 320);
+    this.carrerasService.setValues(600, 320);
     window.addEventListener('resize', this.carrerasService.setDimensions);
   }
 

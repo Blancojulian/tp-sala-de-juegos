@@ -4,9 +4,19 @@
 }
 
 .mensaje{
+    padding: 0.5rem 0;
     text-align: start;
     color: #f15945;
     list-style: none;
+}
+
+.contenedor{
+    padding: 0.2rem 1rem;
+    display: inline-block;
+    /*background-color: #8f918e;
+    opacity: 0.5;*/
+    background: rgba(143, 145, 142, 0.7);
+    border-radius: 0.5rem;
 }
 
 .mensaje h6{
@@ -16,9 +26,22 @@
 
 .mensaje p{
     font-size: 1.5rem;
-
+    display: block;
 }
 
+.datos{
+    display: flex;
+    gap: 1rem;
+}
+
+.mensaje p.texto {
+    opacity: none;
+}
+.texto{
+    font-weight: 10rem;
+}
+
+/*
 .fecha{
     display: inline-block;
-}
+}*/

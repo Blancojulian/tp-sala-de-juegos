@@ -16,6 +16,6 @@ import { PersonajeComponent } from './components/personaje/personaje.component';
     AhorcadoRoutingModule
   ],
   declarations: [AhorcadoComponent, LetraComponent, PalabraComponent,AhorcadoDirective, PersonajeComponent],
-  exports: [AhorcadoComponent]
+  exports: [AhorcadoComponent, AhorcadoDirective]
 })
 export class AhorcadoModule { }

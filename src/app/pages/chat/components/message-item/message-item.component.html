@@ -1,7 +1,11 @@
 <li class="mensaje" [ngClass]="{'propio': this.esPropio}">
-    <h6>{{this.nombre}}</h6>
-    <div>
-        <p class="fecha">{{this.texto}}</p>
-        <div class="fecha">{{this.formatearFecha()}}</div>
+    <div class="contenedor">
+
+        <div class="datos">
+            <h6 class="texto">{{this.nombre}}</h6>
+            <div class="texto">{{this.formatearFecha()}}</div>
+        </div>
+        <p class="texto">{{this.texto}}</p>
+
     </div>
 </li>

@@ -1,0 +1,22 @@
+.container-opciones{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+}
+
+.opcion{
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.4rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.correcta{
+    border: 3px solid #55e95c;
+}
+
+.incorrecta{
+    border: 3px solid #ec3f3f;
+}
+
